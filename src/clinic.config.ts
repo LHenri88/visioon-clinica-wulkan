@@ -52,32 +52,32 @@ export const CLINIC = {
       "id": "harmonizacao-facial",
       "name": "Harmonização Facial",
       "desc": "Protocolo médico de equilíbrio facial respeitando anatomia.",
-      "img": "https://images.unsplash.com/photo-1620331311520-246422fd82f9?w=800"
+      "img": "/img/procedure-hof.jpg"
     },
     {
       "id": "preenchimento-labial",
       "name": "Preenchimento Labial",
       "desc": "Volume e definição labial com ácido hialurônico premium.",
-      "img": "https://images.unsplash.com/photo-1487412947147-5cebf100ffc2?w=800"
+      "img": "/img/procedure-labial.jpg"
     },
     {
       "id": "botox",
       "name": "Toxina Botulínica",
       "desc": "Suavização de linhas dinâmicas preservando expressão natural.",
-      "img": "https://images.unsplash.com/photo-1571442463800-1337d7af9d2f?w=800"
+      "img": "/img/procedure-botox.jpg"
     },
     {
       "id": "bioestimulador",
       "name": "Bioestimulador",
       "desc": "Estímulo de colágeno para firmeza e qualidade da pele.",
-      "img": "https://images.unsplash.com/photo-1559599101-f09722fb4948?w=800"
+      "img": "/img/procedure-bio.jpg"
     }
   ],
   "doctor": {
     "name": "Dra. Wulkan",
     "title": "CRM-SP · Especialista em Medicina Estética",
     "bio": "Há 18 anos referência em harmonização facial médica em São Paulo. Pesquisadora em proporções áureas aplicadas à estética facial.",
-    "avatar": "https://images.unsplash.com/photo-1594824476967-48c8b964273f?w=400"
+    "avatar": "/img/doctor.jpg"
   },
   "protocol": {
     "title": "Protocolo HOF Wulkan",
@@ -120,6 +120,17 @@ export const CLINIC = {
       "text": "Saí parecendo eu mesma — só descansada e equilibrada.",
       "author": "Cliente · 51, Itaim"
     }
-  ]
+  ],
+  "images": {
+    "hero": "/img/hero.jpg",
+    "procedures": {
+      "harmonizacao-facial": "/img/procedure-hof.jpg",
+      "preenchimento-labial": "/img/procedure-labial.jpg",
+      "botox": "/img/procedure-botox.jpg",
+      "bioestimulador": "/img/procedure-bio.jpg"
+    },
+    "doctor": "/img/doctor.jpg",
+    "_note": "Wulkan: imagens geradas via nano-banana (site oficial bloqueou WebFetch)"
+  }
 } as const;
 export type ClinicConfig = typeof CLINIC;
