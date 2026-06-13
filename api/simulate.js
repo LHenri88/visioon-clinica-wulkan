@@ -1,8 +1,8 @@
 const PROCEDURE_PROMPTS = {
-  "harmonizacao-facial": "Realistic facial harmonization preview. Subtle improvements: malar projection, mandibular angle definition, chin balance, mid-face support. Respect anatomy and golden ratio proportions. PRESERVE: identity, skin texture, hair, expression, lighting. Output must be IMMEDIATELY recognizable as the same person — only refined.",
-  "preenchimento-labial": "Hyaluronic acid lip filler simulation. Increase lip volume by ~20% with natural projection — upper:lower ratio 1:1.6. Define cupid's bow and vermilion border. PRESERVE: lip color, skin, surrounding facial features, expression. Avoid duck-lip or overfilled appearance.",
-  "botox": "Botulinum toxin simulation. Smooth dynamic wrinkles on forehead, glabella and crow's feet — KEEP some natural movement and skin texture. PRESERVE: identity, skin tone, brow position (no frozen brow lift). Photorealistic output.",
-  "bioestimulador": "Collagen biostimulator simulation (Sculptra/Radiesse style). Restore mid-face volume and skin firmness with smoothed texture, lifted nasolabial area. PRESERVE: identity, hair, expression."
+  "harmonizacao-facial": "BEFORE→AFTER clinical simulation. The input photo is the BEFORE state. Render the AFTER state of the SAME person after professional facial harmonization (fillers + threads). VISIBLE CHANGES: cheekbones are slightly elevated, jawline is more defined and contoured, face appears more symmetrical, nasolabial folds are softened — a refined, natural refinement. PRESERVE EXACTLY: same facial identity, skin tone, hair color and style, eye color, nose shape, lip shape, background, expression, lighting. Only proportions are subtly improved. Ultra-photorealistic clinical portrait.",
+  "preenchimento-labial": "BEFORE→AFTER clinical simulation. The input photo is the BEFORE state. Render the AFTER state of the SAME person after professional hyaluronic acid lip filler. VISIBLE CHANGES: lips are visibly fuller (approximately 25% more volume), upper lip has a well-defined cupid's bow, vermilion border is clearly defined, lips appear plumper and more symmetrical — natural result, not overdone. PRESERVE EXACTLY: same face, skin tone, eyes, nose, cheeks, hair, background, lighting, expression. Only the lip area is changed. Ultra-photorealistic clinical portrait.",
+  "bioestimulador": "BEFORE→AFTER clinical simulation. The input photo is the BEFORE state. Render the AFTER state of the SAME person 3 months after collagen biostimulator treatment (Sculptra/Radiesse). VISIBLE CHANGES: skin texture is noticeably firmer and smoother, mid-face volume is restored, fine lines and skin laxity are reduced, overall skin appears rejuvenated and fresher. PRESERVE EXACTLY: same face identity, bone structure, hair, eye color, skin tone, expression, background, lighting. Only skin quality and slight volume are improved. Ultra-photorealistic clinical portrait.",
+  "bichectomia": "BEFORE→AFTER clinical simulation. The input photo is the BEFORE state. Render the AFTER state of the SAME person after bichectomy (buccal fat removal). VISIBLE CHANGES: cheeks are noticeably slimmer and more sculpted, cheekbones appear more prominent, jawline is more defined, face shape is more angular and lean. PRESERVE EXACTLY: same skin tone, eyes, nose, lips, hair, expression, background, lighting. Only the lower cheek fullness is reduced. Ultra-photorealistic clinical portrait."
 };
 const CLINIC = { slug: 'clinica-wulkan', name: "Clínica Wulkan", tone: "Luxo discreto, autoridade médica feminina. Vocabulário clínico (HOF, ácido hialurônico) sem perder humanidade." };
 
@@ -19,7 +19,7 @@ export default async function handler(req, res) {
     const form = new FormData();
     form.append('model', 'gpt-image-2');
     form.append('prompt', fullPrompt);
-    form.append('quality', 'medium');
+    form.append('quality', 'high');
     // retrato 1024x1536 — classe Full HD (~1.6MP), formato adequado a fotos frontais
     form.append('size', '1024x1536');
     form.append('image', new Blob([Buffer.from(userB64, 'base64')], { type: userMime || 'image/png' }), 'photo.png');
